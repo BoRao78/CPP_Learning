@@ -9,7 +9,7 @@ public:
 	~Time() {};
 	void set(int h,int m,int s);
 	Time & increment();
-	void display();
+	void virtual display();
 	bool equal(Time const &x);
 	bool less_than(Time const &x);
 
@@ -21,6 +21,21 @@ public:
 	Time operator +(int n); Time operator -(int n);
 	Time operator ++(int); Time operator --(int);
 	int operator -(Time const &x);
+
+	Time & getTime();
+protected:
+
+};
+
+class ExtTime : public Time {
+private:
+	int timezone;
+public:
+	ExtTime(int t, int h, int m, int s):Time(h,m,s) { timezone = t; };
+	void set(int t, int h, int m, int s);
+	bool operator ==(ExtTime &x); 
+	bool operator <(ExtTime &x);
+	void display();
 protected:
 
 };

@@ -24,6 +24,18 @@ int main(){
 	T1--.display();
 	T1.display();
 	cout << (T1 - Time(10, 25, 00)) << endl;
+
+	ExtTime T2(8, 11, 14, 15);
+	T2.display();
+	cout << (T2 == ExtTime(8, 11, 14, 05)) << endl;
+	cout << (T2 < ExtTime(9, 8, 11, 15)) << endl;
+
+	Time *P;
+	P = &T1;
+	P->display();
+	P = &T2;
+	P->display();
+
 	system("PAUSE");
     return 0;
 }

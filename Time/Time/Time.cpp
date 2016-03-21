@@ -136,3 +136,31 @@ int Time::operator-(Time const & x){
 	Time temp = x;
 	return int(*this) - int(temp);
 }
+
+Time & Time::getTime(){
+	return Time(hour, minute, second);
+}
+
+void ExtTime::set(int t, int h, int m, int s){
+	timezone = t;
+	Time(h, m, s);
+}
+
+bool ExtTime::operator==(ExtTime & x){
+	return (timezone == x.timezone) && (this->getTime() == x.getTime());
+	return false;
+}
+
+bool ExtTime::operator<(ExtTime & x){
+	if (timezone < x.timezone)
+		return true;
+	else if (timezone>x.timezone)
+		return false;
+	else
+		return this->getTime() < x.getTime();
+}
+
+void ExtTime::display(){
+	cout << "Timezone: +"<<timezone<< endl;
+	Time::display();
+}
