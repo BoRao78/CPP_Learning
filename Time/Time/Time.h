@@ -1,8 +1,6 @@
 class Time {
 private:
-	int hour;
-	int minute;
-	int second;
+
 public:
 	Time(int h, int m, int s) { hour = h; minute = m; second = s; };
 	Time(Time const &x) { hour = x.hour; minute = x.minute; second = x.second; };
@@ -22,9 +20,11 @@ public:
 	Time operator ++(int); Time operator --(int);
 	int operator -(Time const &x);
 
-	Time & getTime();
+	Time getTime();
 protected:
-
+	int hour;
+	int minute;
+	int second;
 };
 
 class ExtTime : public Time {
@@ -33,8 +33,8 @@ private:
 public:
 	ExtTime(int t, int h, int m, int s):Time(h,m,s) { timezone = t; };
 	void set(int t, int h, int m, int s);
-	bool operator ==(ExtTime &x); 
-	bool operator <(ExtTime &x);
+	bool operator ==(ExtTime const &x); 
+	bool operator <(ExtTime const &x);
 	void display();
 protected:
 

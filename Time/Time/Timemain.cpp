@@ -27,7 +27,9 @@ int main(){
 
 	ExtTime T2(8, 11, 14, 15);
 	T2.display();
-	cout << (T2 == ExtTime(8, 11, 14, 05)) << endl;
+	T2.set(8, 12, 44, 15);
+	T2.display();
+	cout << (T2 == ExtTime(8, 12, 44, 15)) << endl;
 	cout << (T2 < ExtTime(9, 8, 11, 15)) << endl;
 
 	Time *P;
