@@ -30,7 +30,7 @@ int main(){
 	T2.set(8, 12, 44, 15);
 	T2.display();
 	cout << (T2 == ExtTime(8, 12, 44, 15)) << endl;
-	cout << (T2 < ExtTime(9, 8, 11, 15)) << endl;
+	cout << (T2 < ExtTime(10, 11, 11, 15)) << endl;
 
 	Time *P;
 	P = &T1;

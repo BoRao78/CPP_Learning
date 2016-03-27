@@ -149,18 +149,13 @@ void ExtTime::set(int t, int h, int m, int s){
 }
 
 bool ExtTime::operator==(ExtTime const & x){
-	return (timezone == x.timezone) && (hour == x.hour) && (minute == x.minute) && (second == x.second);
+	return (timezone + hour == x.timezone + x.hour) && (minute == x.minute) && (second == x.second);
 }
 
 bool ExtTime::operator<(ExtTime const & x){
-	if (timezone < x.timezone)
-		return true;
-	else if (timezone>x.timezone)
-		return false;
-	else{
-		if (hour > x.hour)
+	if (timezone + hour >x.timezone + x.hour)
 			return false;
-		else if (hour < x.hour)
+		else if (timezone + hour <x.timezone + x.hour)
 			return true;
 		else {
 			if (minute > x.minute)
@@ -175,7 +170,6 @@ bool ExtTime::operator<(ExtTime const & x){
 			}
 		}
 	}
-}
 
 void ExtTime::display(){
 	cout << "Timezone: +"<<timezone<< endl;
