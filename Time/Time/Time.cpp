@@ -143,12 +143,13 @@ Time Time::getTime(){
 
 void ExtTime::set(int t, int h, int m, int s){
 	timezone = t;
-	Time(h, m, s);
+	hour = h;
+	minute = m;
+	second = s;
 }
 
 bool ExtTime::operator==(ExtTime const & x){
 	return (timezone == x.timezone) && (hour == x.hour) && (minute == x.minute) && (second == x.second);
-	return false;
 }
 
 bool ExtTime::operator<(ExtTime const & x){
