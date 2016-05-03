@@ -76,7 +76,7 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 		return FALSE;
 	// TODO: 在此处通过修改
 	//  CREATESTRUCT cs 来修改窗口类或样式
-	cs.style = CS_HREDRAW | CS_VREDRAW | CS_DBLCLKS;
+	//cs.style = CS_HREDRAW | CS_VREDRAW | CS_DBLCLKS;
 	return TRUE;
 }
 

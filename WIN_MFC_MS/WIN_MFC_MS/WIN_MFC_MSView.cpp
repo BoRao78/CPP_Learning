@@ -53,7 +53,7 @@ BOOL CWIN_MFC_MSView::PreCreateWindow(CREATESTRUCT& cs)
 {
 	// TODO: 在此处通过修改
 	//  CREATESTRUCT cs 来修改窗口类或样式
-	//cs.style = WS_OVERLAPPEDWINDOW|WS_SYSMENU;
+	//cs.style = WS_OVERLAPPEDWINDOW|WS_SYSMENU|WS_VSCROLL|WS_HSCROLL;
 	cs.x = 0;
 	cs.y = 0;
 	cs.cx = GetSystemMetrics(SM_CXSCREEN) / 2;
