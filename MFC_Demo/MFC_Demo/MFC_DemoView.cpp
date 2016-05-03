@@ -35,12 +35,7 @@ END_MESSAGE_MAP()
 
 CMFC_DemoView::CMFC_DemoView(){
 	// TODO: 在此处添加构造代码
-	m_nColors[0] = RGB(255, 0, 0);
-	m_nColors[1] = RGB(0, 255, 0);
-	m_nColors[2] = RGB(0, 0, 255);
-	m_nColorIndex = 0;
-	m_strShow = "Hello World!";
-	m_bShow = TRUE;
+
 }
 
 CMFC_DemoView::~CMFC_DemoView()
@@ -65,12 +60,27 @@ void CMFC_DemoView::OnDraw(CDC* pDC)
 		return;
 
 	// TODO: 在此处为本机数据添加绘制代码
-	if (m_bShow)
-	{
-		pDC->SetTextColor(m_nColors[m_nColorIndex]);
-		// 设置输出字符串颜色
-		pDC->TextOut(100, 100, m_strShow);   // 输出字符串
-	}
+	CClientDC hdc(this);
+	SetMapMode(hdc, MM_ANISOTROPIC);       //设置映像模式
+	HPEN hP = (HPEN)GetStockObject(BLACK_PEN);	//黑色画笔
+	HBRUSH hB = (HBRUSH)GetStockObject(DKGRAY_BRUSH); //画刷
+	SelectObject(hdc, hB);   //选择画刷
+	SelectObject(hdc, hP);       //选择画笔
+	RoundRect(hdc, 50, 120, 100, 200, 15, 15); //绘制圆角矩形
+	hB = (HBRUSH)GetStockObject(LTGRAY_BRUSH);  //采用亮灰色画刷
+	SelectObject(hdc, hB);  	   //选择画刷
+	Ellipse(hdc, 150, 50, 200, 150); 	   //绘制椭圆
+	hB = (HBRUSH)GetStockObject(HOLLOW_BRUSH); //虚画刷
+	SelectObject(hdc, hB);  	  //选择画刷
+	Pie(hdc, 250, 50, 300, 100, 250, 50, 300, 50);  	//绘制饼形
+
+	hP = CreatePen(PS_DASHDOT, 1, RGB(0, 0, 255));
+	hB = CreateHatchBrush(HS_HORIZONTAL, RGB(0, 255, 0));
+	SelectObject(hdc, hP);
+	SelectObject(hdc, hB);
+	RoundRect(hdc, 35, 220, 115, 270, 15, 15);
+	Ellipse(hdc, 125, 170, 225, 220);
+	Pie(hdc, 250, 120, 300, 170, 300, 120, 300, 170);
 
 }
 
@@ -116,26 +126,3 @@ CMFC_DemoDoc* CMFC_DemoView::GetDocument() const // 非调试版本是内联的
 
 
 // CMFC_DemoView 消息处理程序
-
-
-void CMFC_DemoView::OnLButtonDown(UINT nFlags, CPoint point)
-{
-	// TODO: 在此添加消息处理程序代码和/或调用默认值
-	CClientDC dc(this);
-	dc.TextOut(100, 140, _T("You have pressed the left button of the mouse!"));
-
-	CView::OnLButtonDown(nFlags, point);
-}
-
-
-void CMFC_DemoView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
-{
-	// TODO: 在此添加消息处理程序代码和/或调用默认值
-	CString str1, str2;
-	str1 = "You have pressed "; str2 = " !";
-	str1 += wchar_t(nChar); str1 += str2;
-	CClientDC dc(this);
-	dc.TextOut(100, 120, str1);
-
-	CView::OnChar(nChar, nRepCnt, nFlags);
-}
