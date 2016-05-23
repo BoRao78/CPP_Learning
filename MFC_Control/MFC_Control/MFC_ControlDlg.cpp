@@ -77,6 +77,9 @@ BEGIN_MESSAGE_MAP(CMFC_ControlDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_OK, &CMFC_ControlDlg::OnClickedOk)
 	ON_STN_CLICKED(IDC_STATIC_1, &CMFC_ControlDlg::OnClickedStatic1)
 	ON_WM_CTLCOLOR()
+	ON_EN_CHANGE(IDC_EDIT1, &CMFC_ControlDlg::OnEnChangeEdit1)
+	ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN2, &CMFC_ControlDlg::OnDeltaposSpin2)
+	ON_WM_VSCROLL()
 END_MESSAGE_MAP()
 
 
@@ -112,6 +115,11 @@ BOOL CMFC_ControlDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO: 在此添加额外的初始化代码
+
+	//CSpinButtonCtrl* pSpin = (CSpinButtonCtrl*)GetDlgItem(IDC_SPIN1);
+	//pSpin->SetRange(0, 100);
+	//pSpin->SetPos(50);
+	//pSpin->GetBuddy()->SetWindowTextW(_T("5.0"));
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
@@ -201,4 +209,30 @@ HBRUSH CMFC_ControlDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 
 	// TODO:  如果默认的不是所需画笔，则返回另一个画笔
 	return m_brush;
+}
+
+
+void CMFC_ControlDlg::OnEnChangeEdit1()
+{
+	// TODO:  如果该控件是 RICHEDIT 控件，它将不
+	// 发送此通知，除非重写 CDialogEx::OnInitDialog()
+	// 函数并调用 CRichEditCtrl().SetEventMask()，
+	// 同时将 ENM_CHANGE 标志“或”运算到掩码中	
+
+	// TODO:  在此添加控件通知处理程序代码
+}
+
+
+
+void CMFC_ControlDlg::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
+{
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
+
+
+
+
+	CDialogEx::OnVScroll(nSBCode, nPos, pScrollBar);
+
+
+
 }

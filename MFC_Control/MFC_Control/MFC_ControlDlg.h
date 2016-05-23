@@ -45,4 +45,7 @@ public:
 	CStatic m_static1;
 	afx_msg void OnClickedStatic1();
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+	afx_msg void OnEnChangeEdit1();
+	afx_msg void OnDeltaposSpin2(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
 };
