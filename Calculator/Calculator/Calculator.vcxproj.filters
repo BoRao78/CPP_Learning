@@ -15,33 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="File1.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="File2.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Lesson1_1.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="File1.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="File2.cpp">
+    <ClCompile Include="Source.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
